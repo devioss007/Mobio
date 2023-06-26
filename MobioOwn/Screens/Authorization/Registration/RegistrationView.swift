@@ -8,17 +8,152 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @EnvironmentObject var profile: Profile
+    
+    @FocusState var isTextFieldFocused: Bool
+    @FocusState var isPasswordFieldFocused: Bool
+    @FocusState var isEmailFieldFocused: Bool
+    @FocusState var isFullnameFieldFocused: Bool
+    
+    @State var phoneNumber: String = ""
+    @State var email: String = ""
+    @State var password: String = ""
+    @State var fullname: String = ""
+    @State var faulureAlert: Bool = false
+    @State var successAlert: Bool = false
+    
+    
+    @Binding var showProgressView: Bool
+    
+    @StateObject var viewModel = RegistrationViewModel()
+    
     var body: some View {
-        Text("RegistrationView")
+        
+        VStack {
+            
+            ScrollView {
+                VStack(spacing: 30) {
+                    // shu yerda
+                    FullnameField(text: $fullname, title: "To'liq ism familiya")
+                        .focused($isTextFieldFocused)
+                        .gesture(
+                            TapGesture()
+                                .onEnded { _ in
+                                    isFullnameFieldFocused = true
+                                }
+                        )
+                    
+                    FocusedTextField(text: $phoneNumber, title: "Telefon raqam")
+                        .focused($isTextFieldFocused)
+                        .gesture(
+                            TapGesture()
+                                .onEnded { _ in
+                                    isTextFieldFocused = true
+                                }
+                        )
+                        .onChange(of: phoneNumber) { newValue in
+                            if newValue.count == 9 {
+                                isEmailFieldFocused = true
+                            } else if newValue.count > 9 {
+                                phoneNumber = String(newValue.dropLast())
+                            }
+                        }
+                    // shu yerda
+                    EmailField(text: $email, title: "Email")
+                        .focused($isEmailFieldFocused)
+                        .gesture(
+                            TapGesture()
+                                .onEnded { _ in
+                                    isEmailFieldFocused = true
+                                }
+                        )
+                    
+                    PasswordField(text: $password, title: "Parol")
+                        .focused($isPasswordFieldFocused)
+                        .gesture(
+                            TapGesture()
+                                .onEnded { _ in
+                                    isPasswordFieldFocused = true
+                                }
+                        )
+                }
+                .customAlert(isPresented: $successAlert) {
+                    Text("You have successfully registrared!")
+                } content: { } actions: {
+                    Button {
+                        print("Button clicked")
+                    } label: {
+                        Text("OK")
+                            .bold()
+                    }
+                }
+                .customAlert(isPresented: $faulureAlert) {
+                    Text("The given data was invalid.")
+                } content: { } actions: {
+                    Button {
+                        print("Button clicked")
+                    } label: {
+                        Text("OK")
+                            .bold()
+                    }
+                }
+                .background(Color.white)
+                .padding(.top, 60)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button {
+                            isTextFieldFocused = false
+                            isPasswordFieldFocused = false
+                            isEmailFieldFocused = false
+                            isFullnameFieldFocused = false
+                        } label: {
+                            Text("Done")
+                                .bold()
+                        }
+                    }
+                }
+            }
+            Spacer()
+            
+            Button {
+                isTextFieldFocused = false
+                isPasswordFieldFocused = false
+                isFullnameFieldFocused = false
+                isFullnameFieldFocused = false
+                
+                showProgressView = true
+                viewModel.registerUser(phoneNumber: phoneNumber, password: password, fullname: fullname, email: email) { (result, message)  in
+                    showProgressView = false
+                    print(message, "salom")
+                    if result, message == "user succesfully registered" {
+                        successAlert.toggle()
+                        faulureAlert.toggle()
+                    } else {
+                        faulureAlert.toggle()
+                    }
+                }
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("Ro'yxatdan o'tish")
+                        .bold()
+                    Spacer()
+                }
+                .padding(.vertical, 20)
+                .foregroundColor(.white)
+                .background(.red)
+                .cornerRadius(12)
+                .padding(.horizontal)
+            }
+            .opacity(viewModel.changeButtonOpacity(phoneNumber: phoneNumber, password: password, fullname: fullname, email: email))
+            .disabled(viewModel.changeButtonCondition(phoneNumber: phoneNumber, password: password, fullname: fullname, email: email))
+        }
+        .background(.white)
     }
 }
 
-struct RegistrationView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegistrationView()
-    }
-}
-
+// MARK: - Details
 
 struct FocusedTextField: View {
     
@@ -130,13 +265,86 @@ struct PasswordField: View {
 }
 
 
+struct EmailField: View {
+    
+    @FocusState private var isFocused: Bool
+    @Binding var text: String
+    let title: String
+    
+    var body: some View {
+        
+        VStack {
+            VStack(alignment: .leading, spacing: 0) {
+                
+                Text(title)
+                    .foregroundColor(isFocused ? .red : .secondary)
+                    .offset(y: 14)
+                
+                TextField("", text: $text)
+                    .focused($isFocused)
+                    .onChange(of: isFocused) { focused in
+                        isFocused = focused
+                    }
+                    .frame(height: 30)
+                    .padding(.vertical, 10)
+                    .accentColor(.red)
+                    .textContentType(.oneTimeCode)
+                    .keyboardType(.emailAddress)
+            }
+            .padding(.leading)
+            
+            Rectangle()
+                .foregroundColor(isFocused ? .red : .secondary)
+                .frame(height: isFocused ? 2 : 1)
+        }
+        .padding(.horizontal)
+        
+    }
+}
+
+
+struct FullnameField: View {
+    
+    @FocusState private var isFocused: Bool
+    @Binding var text: String
+    let title: String
+    
+    var body: some View {
+        
+        VStack {
+            VStack(alignment: .leading, spacing: 0) {
+                
+                Text(title)
+                    .foregroundColor(isFocused ? .red : .secondary)
+                    .offset(y: 14)
+                
+                TextField("", text: $text)
+                    .focused($isFocused)
+                    .onChange(of: isFocused) { focused in
+                        isFocused = focused
+                    }
+                    .frame(height: 30)
+                    .padding(.vertical, 10)
+                    .accentColor(.red)
+                    .textContentType(.oneTimeCode)
+            }
+            .padding(.leading)
+            
+            Rectangle()
+                .foregroundColor(isFocused ? .red : .secondary)
+                .frame(height: isFocused ? 2 : 1)
+        }
+        .padding(.horizontal)
+        
+    }
+}
 
 struct CircularLoadingView<Content>: View where Content: View {
-
+    
     @Binding var isShowing: Bool
     var content: () -> Content
     var text: String?
-
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .center) {
@@ -148,7 +356,7 @@ struct CircularLoadingView<Content>: View where Content: View {
                     Rectangle()
                         .fill(Color.black).opacity(isShowing ? 0.6 : 0)
                         .edgesIgnoringSafeArea(.all)
-
+                    
                     VStack(spacing: 48) {
                         ProgressView().scaleEffect(1.8, anchor: .center)
                         Text(text ?? "Loading...").font(.title3).fontWeight(.semibold)

@@ -26,6 +26,8 @@
 		C4487D732A460D380031FE42 /* StarterScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4487D722A460D380031FE42 /* StarterScreenViewModel.swift */; };
 		C4487D772A46109E0031FE42 /* AuthorizationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4487D762A46109E0031FE42 /* AuthorizationScreen.swift */; };
 		C4487D7B2A4612D30031FE42 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4487D7A2A4612D30031FE42 /* HomeScreenViewModel.swift */; };
+		C4980C3C2A498F8500307882 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4980C3B2A498F8500307882 /* RegistrationModel.swift */; };
+		C4B2A3042A49753B006761C4 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2A3032A49753B006761C4 /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		C4487D722A460D380031FE42 /* StarterScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterScreenViewModel.swift; sourceTree = "<group>"; };
 		C4487D762A46109E0031FE42 /* AuthorizationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreen.swift; sourceTree = "<group>"; };
 		C4487D7A2A4612D30031FE42 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		C4980C3B2A498F8500307882 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
+		C4B2A3032A49753B006761C4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				C4317B312A45555700DA8C2F /* TokenModel.swift */,
+				C4980C3B2A498F8500307882 /* RegistrationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				C4317B252A4416B500DA8C2F /* RegistrationView.swift */,
+				C4B2A3032A49753B006761C4 /* RegistrationViewModel.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -279,9 +285,11 @@
 				C4317B2C2A45551A00DA8C2F /* NetworkManager.swift in Sources */,
 				C4317B262A4416B500DA8C2F /* RegistrationView.swift in Sources */,
 				C4317B352A45558F00DA8C2F /* UserDefaultsManager.swift in Sources */,
+				C4B2A3042A49753B006761C4 /* RegistrationViewModel.swift in Sources */,
 				C4487D6F2A4606BD0031FE42 /* StarterScreen.swift in Sources */,
 				C4317B382A45575100DA8C2F /* HomeScreen.swift in Sources */,
 				C4317B322A45555800DA8C2F /* TokenModel.swift in Sources */,
+				C4980C3C2A498F8500307882 /* RegistrationModel.swift in Sources */,
 				C4317B242A44168B00DA8C2F /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

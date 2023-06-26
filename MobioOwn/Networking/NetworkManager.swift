@@ -36,4 +36,38 @@ class NetworkManager {
             }
     }
     
+    func performRequestForRegister(phoneNumber: String, password: String, fullname: String, email: String, completion: @escaping (Result<RegistrationModel, Error>) -> Void) {
+        
+        let url = "https://dev.mobio.uz/api/register"
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+
+        let parameters: [String: Any] = [
+            "email": email,
+            "name": fullname,
+            "password": password,
+            "phone": "998\(phoneNumber)",
+        ]
+        
+        print("paramet", parameters)
+
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: value)
+                        let response = try JSONDecoder().decode(RegistrationModel.self, from: jsonData)
+                        completion(.success(response))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                    print("Error: \(error)")
+                }
+            }
+    }
+    
 }

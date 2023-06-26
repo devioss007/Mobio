@@ -14,7 +14,7 @@ struct AuthorizationScreen: View {
     @State var selectedTab: Int = 0
     @State var showProgressView: Bool = false
     private let tabs = ["Login", "Register"]
-        
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -61,7 +61,7 @@ struct AuthorizationScreen: View {
                     LoginView(showProgressView: $showProgressView).tag(0)
                     
                     // MAKR: - Registration View
-                    RegistrationView().tag(1)
+                    RegistrationView(showProgressView: $showProgressView).tag(1)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
             }
