@@ -6,13 +6,12 @@
 //
 
 import Foundation
-let KEY = "TOKEN"
 
 final class Profile: ObservableObject {
     @Published var isUserLoggedIn: Bool
     
     init() {
-        let token = UserDefaults.standard.string(forKey: KEY)
+        let token = UserDefaults.standard.string(forKey: UserDefaultsManager.Token.access_token.rawValue)
         isUserLoggedIn = (token != nil)
     }
 }
