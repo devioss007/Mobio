@@ -27,7 +27,12 @@
 		C4487D772A46109E0031FE42 /* AuthorizationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4487D762A46109E0031FE42 /* AuthorizationScreen.swift */; };
 		C4487D7B2A4612D30031FE42 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4487D7A2A4612D30031FE42 /* HomeScreenViewModel.swift */; };
 		C4980C3C2A498F8500307882 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4980C3B2A498F8500307882 /* RegistrationModel.swift */; };
+		C4A3E9F42A4AABA800F75357 /* HomeScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A3E9F32A4AABA800F75357 /* HomeScreenModel.swift */; };
+		C4A3E9F62A4AB62A00F75357 /* HomeViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A3E9F52A4AB62A00F75357 /* HomeViewSection.swift */; };
+		C4A3E9F92A4AB6D400F75357 /* HomeViewSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A3E9F82A4AB6D400F75357 /* HomeViewSectionViewModel.swift */; };
 		C4B2A3042A49753B006761C4 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2A3032A49753B006761C4 /* RegistrationViewModel.swift */; };
+		C4C775FD2A4AA0A20040F75E /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C775FC2A4AA0A20040F75E /* TabbarView.swift */; };
+		C4F4CE532A52A02D00633965 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C4F4CE522A52A02D00633965 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +54,11 @@
 		C4487D762A46109E0031FE42 /* AuthorizationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreen.swift; sourceTree = "<group>"; };
 		C4487D7A2A4612D30031FE42 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		C4980C3B2A498F8500307882 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
+		C4A3E9F32A4AABA800F75357 /* HomeScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenModel.swift; sourceTree = "<group>"; };
+		C4A3E9F52A4AB62A00F75357 /* HomeViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSection.swift; sourceTree = "<group>"; };
+		C4A3E9F82A4AB6D400F75357 /* HomeViewSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSectionViewModel.swift; sourceTree = "<group>"; };
 		C4B2A3032A49753B006761C4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		C4C775FC2A4AA0A20040F75E /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4F4CE532A52A02D00633965 /* SDWebImageSwiftUI in Frameworks */,
 				C4317B1E2A44089000DA8C2F /* SlidingTabView in Frameworks */,
 				C4317B3E2A4559AE00DA8C2F /* CustomAlert in Frameworks */,
 				C4317B2F2A45553E00DA8C2F /* Alamofire in Frameworks */,
@@ -147,6 +157,7 @@
 			children = (
 				C4317B312A45555700DA8C2F /* TokenModel.swift */,
 				C4980C3B2A498F8500307882 /* RegistrationModel.swift */,
+				C4A3E9F32A4AABA800F75357 /* HomeScreenModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +175,8 @@
 			children = (
 				C4317B372A45575100DA8C2F /* HomeScreen.swift */,
 				C4487D7A2A4612D30031FE42 /* HomeScreenViewModel.swift */,
+				C4A3E9F72A4AB62E00F75357 /* Home Section */,
+				C4C775FB2A4AA0730040F75E /* Details */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -195,6 +208,23 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		C4A3E9F72A4AB62E00F75357 /* Home Section */ = {
+			isa = PBXGroup;
+			children = (
+				C4A3E9F52A4AB62A00F75357 /* HomeViewSection.swift */,
+				C4A3E9F82A4AB6D400F75357 /* HomeViewSectionViewModel.swift */,
+			);
+			path = "Home Section";
+			sourceTree = "<group>";
+		};
+		C4C775FB2A4AA0730040F75E /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				C4C775FC2A4AA0A20040F75E /* TabbarView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,6 +245,7 @@
 				C4317B1D2A44089000DA8C2F /* SlidingTabView */,
 				C4317B2E2A45553E00DA8C2F /* Alamofire */,
 				C4317B3D2A4559AE00DA8C2F /* CustomAlert */,
+				C4F4CE522A52A02D00633965 /* SDWebImageSwiftUI */,
 			);
 			productName = MobioOwn;
 			productReference = C4317B0B2A44027500DA8C2F /* MobioOwn.app */;
@@ -248,6 +279,7 @@
 				C4317B1C2A44088F00DA8C2F /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				C4317B2D2A45553E00DA8C2F /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C4317B3C2A4559AE00DA8C2F /* XCRemoteSwiftPackageReference "CustomAlert" */,
+				C4F4CE512A52A02D00633965 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = C4317B0C2A44027500DA8C2F /* Products */;
 			projectDirPath = "";
@@ -281,13 +313,17 @@
 				C4317B3B2A45586000DA8C2F /* LoginViewModel.swift in Sources */,
 				C4487D732A460D380031FE42 /* StarterScreenViewModel.swift in Sources */,
 				C4487D772A46109E0031FE42 /* AuthorizationScreen.swift in Sources */,
+				C4A3E9F92A4AB6D400F75357 /* HomeViewSectionViewModel.swift in Sources */,
+				C4A3E9F62A4AB62A00F75357 /* HomeViewSection.swift in Sources */,
 				C4317B0F2A44027500DA8C2F /* MobioOwnApp.swift in Sources */,
 				C4317B2C2A45551A00DA8C2F /* NetworkManager.swift in Sources */,
 				C4317B262A4416B500DA8C2F /* RegistrationView.swift in Sources */,
 				C4317B352A45558F00DA8C2F /* UserDefaultsManager.swift in Sources */,
 				C4B2A3042A49753B006761C4 /* RegistrationViewModel.swift in Sources */,
 				C4487D6F2A4606BD0031FE42 /* StarterScreen.swift in Sources */,
+				C4C775FD2A4AA0A20040F75E /* TabbarView.swift in Sources */,
 				C4317B382A45575100DA8C2F /* HomeScreen.swift in Sources */,
+				C4A3E9F42A4AABA800F75357 /* HomeScreenModel.swift in Sources */,
 				C4317B322A45555800DA8C2F /* TokenModel.swift in Sources */,
 				C4980C3C2A498F8500307882 /* RegistrationModel.swift in Sources */,
 				C4317B242A44168B00DA8C2F /* LoginView.swift in Sources */,
@@ -517,6 +553,14 @@
 				kind = branch;
 			};
 		};
+		C4F4CE512A52A02D00633965 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -534,6 +578,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C4317B3C2A4559AE00DA8C2F /* XCRemoteSwiftPackageReference "CustomAlert" */;
 			productName = CustomAlert;
+		};
+		C4F4CE522A52A02D00633965 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4F4CE512A52A02D00633965 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

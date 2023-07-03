@@ -50,8 +50,6 @@ class NetworkManager {
             "password": password,
             "phone": "998\(phoneNumber)",
         ]
-        
-        print("paramet", parameters)
 
         AF.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { response in
                 switch response.result {
@@ -70,4 +68,34 @@ class NetworkManager {
             }
     }
     
+    
+    func getAllDataForHomeScreen(page: Int, completion: @escaping (Result<[HomeScreenItems], Error>) -> Void) {
+        let url = "https://dev.mobio.uz/api/category"
+        
+        let parameters: [String: Any] = [
+            "count": 10,
+            "page": page
+        ]
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        AF.request(url, method: .get, parameters: parameters, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: value)
+                        let response = try JSONDecoder().decode(HomeScreenModel.self, from: jsonData)
+                        completion(.success(response.category.data))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                    print("Error: \(error)")
+                }
+            }
+
+    }
 }
