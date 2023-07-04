@@ -17,16 +17,18 @@ struct HomeViewSection: View {
             
             ZStack {
                 VStack {
+                    // MARK: - Header
                     HStack {
                         Text("Bo'limlar")
                         Spacer()
                         NavigationLink("Barchasini ko'rish >") {
-                            DetailCategory(items: viewModel.items)
+                            DetailCategoryScreen(items: viewModel.items)
                         }
                     }
                     .font(.system(size: 12))
                     .foregroundColor(.red)
                     .padding(.horizontal)
+                    // MARK: - Items
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 4) {
                             ForEach(0..<viewModel.items.count, id: \.self) { index in
@@ -35,49 +37,79 @@ struct HomeViewSection: View {
                                         VStack { }.onAppear {
                                             viewModel.getItems()
                                         }
-                                    }
-                                    WebImage(url: URL(string: "https://dev.mobio.uz/storage/64/Y0CHiJ6VlmtDY0zTz6x8BxVFthduEU-metaQXBwcy1jb3VudGVyLXN0cmlrZS1pY29uLnBuZw==-.png"))
-                                        .frame(width: 60, height: 60)
-                                        .cornerRadius(30)
                                         
+                                        if let url = viewModel.items[index].photo_cat {
+                                            WebImage(url: URL(string: "https://dev.mobio.uz/storage/\(url.id)/\(url.file_name)"))
+                                                .resizable()
+                                                .frame(width: 50, height: 50)
+                                                .cornerRadius(25)
+                                        } else {
+                                            ZStack {
+                                                Rectangle()
+                                                    .foregroundColor(viewModel.showProgressView ? .white : Color.gray)
+                                                    .frame(width: 50, height: 50)
+                                                    .cornerRadius(25)
+                                                ProgressView()
+                                            }
+                                        }
+                                        
+                                    } else {
+                                        
+                                        if let url = viewModel.items[index].photo_cat {
+                                            WebImage(url: URL(string: "https://dev.mobio.uz/storage/\(url.id)/\(url.file_name)"))
+                                                .resizable()
+                                                .frame(width: 50, height: 50)
+                                                .cornerRadius(25)
+                                        } else {
+                                            ZStack {
+                                                Rectangle()
+                                                    .foregroundColor(Color.gray)
+                                                    .frame(width: 50, height: 50)
+                                                    .cornerRadius(25)
+                                                ProgressView()
+                                            }
+                                        }
+                                        
+                                    }
                                     
                                     Text(viewModel.items[index].name)
                                         .multilineTextAlignment(.center)
                                         .scaledToFit()
-                                        .font(.system(size: 12))
+                                        .font(.system(size: 10))
                                         .lineLimit(nil)
                                         .padding(.horizontal)
                                 }
                                 .frame(width: 100)
                             }
                         }
-                        .padding()
+//                        .padding(.trailing, -100)
                     }
                     .frame(height: 100)
                     Spacer()
                 }
                 
                 
-                if viewModel.showProgressView {
-                    ZStack {
-                        Rectangle()
-                            .opacity(0.3)
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle())
-                            .scaleEffect(2)
-                    }
-                }
+                //                if viewModel.showProgressView {
+                //                    ZStack {
+                //                        Rectangle()
+                //                            .opacity(0.3)
+                //                        ProgressView()
+                //                            .progressViewStyle(CircularProgressViewStyle())
+                //                            .scaleEffect(2)
+                //                    }
+                //                }
             }
         }
         .onAppear {
-            viewModel.getItems()
+            if viewModel.items.isEmpty {
+                viewModel.getItems()
+            }
         }
     }
 }
 
 struct HomeViewSection_Previews: PreviewProvider {
     static var previews: some View {
-//        DetailCategory()
         HomeViewSection()
     }
 }
@@ -96,29 +128,3 @@ extension RandomAccessCollection where Self.Element: Identifiable {
         return distance == 1
     }
 }
-
-
-struct DetailCategory: View {
-    
-    let items: [HomeScreenItems]
-    
-    var body: some View {
-        ScrollView {
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 10) {
-                ForEach(items, id: \.self) { item in
-                    VStack {
-                        Circle()
-                            .frame(width: 60, height: 60)
-                        Text(item.name)
-                            .multilineTextAlignment(.center)
-                            .scaledToFit()
-                            .font(.system(size: 12))
-                            .lineLimit(nil)
-                            .padding(.horizontal)
-                    }
-                    
-                }
-            }
-            .padding()
-        }
-    }}

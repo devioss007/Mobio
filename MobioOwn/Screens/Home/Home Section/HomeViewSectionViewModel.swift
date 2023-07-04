@@ -18,16 +18,16 @@ final class HomeViewSectionViewModel: ObservableObject {
     func getItems() {
         if moreElementsExist {
             page += 1
-//            showProgressView = true
-            print(page)
+            showProgressView = true
+//            print(page)
             service.getAllDataForHomeScreen(page: page) { resonse in
-//                self.showProgressView = false
+                self.showProgressView = false
                 switch resonse {
                 case .success(let items):
                     self.items += items
                 case .failure:
                     self.moreElementsExist = false
-                    print("finish")
+//                    print("finish")
                 }
             }
         }

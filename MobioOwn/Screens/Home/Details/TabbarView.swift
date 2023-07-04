@@ -17,7 +17,6 @@ struct TabbarView: View {
             
             Button(action: {
                 selectedSection = .search
-                print("Search button tapped")
             }, label: {
                 HStack {
                     Spacer()
@@ -36,7 +35,6 @@ struct TabbarView: View {
             
             Button(action: {
                 selectedSection = .home
-                print("Home button tapped")
             }, label: {
                 HStack {
                     Spacer()
@@ -55,7 +53,6 @@ struct TabbarView: View {
             
             Button(action: {
                 selectedSection = .basket
-                print("Basket button tapped")
             }, label: {
                 HStack {
                     Spacer()
