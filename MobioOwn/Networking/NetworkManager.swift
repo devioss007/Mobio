@@ -96,6 +96,33 @@ class NetworkManager {
                     print("Error: \(error)")
                 }
             }
-
     }
+    
+    func getMainProducts(completion: @escaping (Result<MainProductsModel, Error>) -> Void) {
+        let url = "https://dev.mobio.uz/api/products/main"
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: value)
+                        let response = try JSONDecoder().decode(MainProductsModel.self, from: jsonData)
+                        print("salom")
+                        completion(.success(response))
+                    } catch {
+                        print("alik")
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                    print("Error: \(error)")
+                }
+            }
+    }
+    
+    
 }

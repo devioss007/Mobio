@@ -14,23 +14,25 @@ struct HomeViewSection: View {
     
     var body: some View {
         NavigationStack {
-            
-            ZStack {
+            ScrollView {
                 VStack {
                     // MARK: - Header
                     HStack {
                         Text("Bo'limlar")
+                            .font(.system(size: 12))
+
                         Spacer()
                         NavigationLink("Barchasini ko'rish >") {
                             DetailCategoryScreen(items: viewModel.items)
                         }
+                        .foregroundColor(.red)
+                        .font(.system(size: 10))
                     }
-                    .font(.system(size: 12))
-                    .foregroundColor(.red)
+                    .bold()
                     .padding(.horizontal)
                     // MARK: - Items
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 4) {
+                        HStack(spacing: -25) {
                             ForEach(0..<viewModel.items.count, id: \.self) { index in
                                 VStack(alignment: .center, spacing: 6) {
                                     if viewModel.items.isLastItem(viewModel.items[index]) {
@@ -43,12 +45,14 @@ struct HomeViewSection: View {
                                                 .resizable()
                                                 .frame(width: 50, height: 50)
                                                 .cornerRadius(25)
+                                            
                                         } else {
                                             ZStack {
                                                 Rectangle()
                                                     .foregroundColor(viewModel.showProgressView ? .white : Color.gray)
                                                     .frame(width: 50, height: 50)
                                                     .cornerRadius(25)
+                                                
                                                 ProgressView()
                                             }
                                         }
@@ -60,17 +64,20 @@ struct HomeViewSection: View {
                                                 .resizable()
                                                 .frame(width: 50, height: 50)
                                                 .cornerRadius(25)
+
                                         } else {
                                             ZStack {
                                                 Rectangle()
                                                     .foregroundColor(Color.gray)
                                                     .frame(width: 50, height: 50)
                                                     .cornerRadius(25)
+
                                                 ProgressView()
                                             }
                                         }
                                         
                                     }
+                                    
                                     
                                     Text(viewModel.items[index].name)
                                         .multilineTextAlignment(.center)
@@ -82,23 +89,28 @@ struct HomeViewSection: View {
                                 .frame(width: 100)
                             }
                         }
-//                        .padding(.trailing, -100)
+                        .offset(x: -14)
+                        //                        .padding(.trailing, -100)
                     }
-                    .frame(height: 100)
+//                    .background(Color.red)
+//                    .frame(height: 80)
                     Spacer()
+                    
+                    
+                    MainProductsView()
                 }
-                
-                
-                //                if viewModel.showProgressView {
-                //                    ZStack {
-                //                        Rectangle()
-                //                            .opacity(0.3)
-                //                        ProgressView()
-                //                            .progressViewStyle(CircularProgressViewStyle())
-                //                            .scaleEffect(2)
-                //                    }
-                //                }
             }
+            
+            //                if viewModel.showProgressView {
+            //                    ZStack {
+            //                        Rectangle()
+            //                            .opacity(0.3)
+            //                        ProgressView()
+            //                            .progressViewStyle(CircularProgressViewStyle())
+            //                            .scaleEffect(2)
+            //                    }
+            //                }
+            
         }
         .onAppear {
             if viewModel.items.isEmpty {
