@@ -1,19 +1,19 @@
 //
-//  MainProductsViewModel.swift
+//  ChildProductsViewModel.swift
 //  MobioOwn
 //
-//  Created by Zekhniddin Jumaev on 04/07/23.
+//  Created by Zekhniddin Jumaev on 05/07/23.
 //
 
 import Foundation
 
-final class MainProductsViewModel: ObservableObject {
+
+final class ChildProductsViewModel: ObservableObject {
     private let service = NetworkManager()
-    
-    @Published var data = MainProductsModel(message: "", data: [])
+    @Published var data = MainChildProductsModel(message: "", data: [])
     
     func getItems() {
-        service.getMainProducts { response in
+        service.getmainChildProducts { response in
             switch response {
             case .success(let data):
                 self.data = data
@@ -24,7 +24,7 @@ final class MainProductsViewModel: ObservableObject {
         }
     }
     
-    func calculateRate(_ items: [Rate]) -> Double {
+    func calculateRate(_ items: [MainChildProductsModel.Data.Products.Rate]) -> Double {
         if items.isEmpty {
             return 0.0
         }

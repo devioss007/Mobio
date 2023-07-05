@@ -22,7 +22,7 @@ class LoginViewModel: ObservableObject {
                 completion(true)
             case .failure(let error):
                 completion(false)
-                print(error.localizedDescription)
+//                print(error.localizedDescription)
             }
         }
     }

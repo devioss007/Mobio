@@ -47,7 +47,7 @@ struct MainProductsCard: View {
                         
                         VStack {
                             Button {
-                                print("Heart button tapped")
+//                                print("Heart button tapped")
                             } label: {
                                 ZStack {
                                     Circle()
@@ -62,7 +62,7 @@ struct MainProductsCard: View {
                             }
                             
                             Button {
-                                print("Heart button tapped")
+//                                print("Heart button tapped")
                             } label: {
                                 ZStack {
                                     Circle()

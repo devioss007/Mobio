@@ -41,7 +41,7 @@ struct HomeScreen: View {
             .edgesIgnoringSafeArea(.bottom)
             .navigationBarItems(trailing:
                                     Button(action: {
-                print("navigation bar button tapped")
+//                print("navigation bar button tapped")
                 profile.isUserLoggedIn = false
                 viewModel.deleteToken()
             }) {

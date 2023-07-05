@@ -81,7 +81,7 @@ struct RegistrationView: View {
                     Text("You have successfully registrared!")
                 } content: { } actions: {
                     Button {
-                        print("Button clicked")
+//                        print("Button clicked")
                     } label: {
                         Text("OK")
                             .bold()
@@ -91,7 +91,7 @@ struct RegistrationView: View {
                     Text("The given data was invalid.")
                 } content: { } actions: {
                     Button {
-                        print("Button clicked")
+//                        print("Button clicked")
                     } label: {
                         Text("OK")
                             .bold()
@@ -125,7 +125,7 @@ struct RegistrationView: View {
                 showProgressView = true
                 viewModel.registerUser(phoneNumber: phoneNumber, password: password, fullname: fullname, email: email) { (result, message)  in
                     showProgressView = false
-                    print(message, "salom")
+//                    print(message, "salom")
                     if result, message == "user succesfully registered" {
                         successAlert.toggle()
                         faulureAlert.toggle()

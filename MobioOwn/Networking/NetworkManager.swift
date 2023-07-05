@@ -63,7 +63,7 @@ class NetworkManager {
                     }
                 case .failure(let error):
                     completion(.failure(error))
-                    print("Error: \(error)")
+//                    print("Error: \(error)")
                 }
             }
     }
@@ -93,7 +93,7 @@ class NetworkManager {
                     }
                 case .failure(let error):
                     completion(.failure(error))
-                    print("Error: \(error)")
+//                    print("Error: \(error)")
                 }
             }
     }
@@ -111,10 +111,34 @@ class NetworkManager {
                     do {
                         let jsonData = try JSONSerialization.data(withJSONObject: value)
                         let response = try JSONDecoder().decode(MainProductsModel.self, from: jsonData)
-                        print("salom")
+//                        print("salom")
                         completion(.success(response))
                     } catch {
-                        print("alik")
+//                        print("alik")
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+//                    print("Error: \(error)")
+                }
+            }
+    }
+    
+    func getmainChildProducts(completion: @escaping (Result<MainChildProductsModel, Error>) -> Void) {
+        let url = "https://dev.mobio.uz/api/products/mainChild"
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: value)
+                        let response = try JSONDecoder().decode(MainChildProductsModel.self, from: jsonData)
+                        completion(.success(response))
+                    } catch {
                         completion(.failure(error))
                     }
                 case .failure(let error):
@@ -123,6 +147,5 @@ class NetworkManager {
                 }
             }
     }
-    
     
 }

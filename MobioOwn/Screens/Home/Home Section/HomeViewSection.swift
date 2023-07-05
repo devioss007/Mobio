@@ -20,7 +20,7 @@ struct HomeViewSection: View {
                     HStack {
                         Text("Bo'limlar")
                             .font(.system(size: 12))
-
+                        
                         Spacer()
                         NavigationLink("Barchasini ko'rish >") {
                             DetailCategoryScreen(items: viewModel.items)
@@ -64,14 +64,14 @@ struct HomeViewSection: View {
                                                 .resizable()
                                                 .frame(width: 50, height: 50)
                                                 .cornerRadius(25)
-
+                                            
                                         } else {
                                             ZStack {
                                                 Rectangle()
                                                     .foregroundColor(Color.gray)
                                                     .frame(width: 50, height: 50)
                                                     .cornerRadius(25)
-
+                                                
                                                 ProgressView()
                                             }
                                         }
@@ -92,12 +92,13 @@ struct HomeViewSection: View {
                         .offset(x: -14)
                         //                        .padding(.trailing, -100)
                     }
-//                    .background(Color.red)
-//                    .frame(height: 80)
+                    //                    .background(Color.red)
+                    //                    .frame(height: 80)
                     Spacer()
                     
-                    
+                    // MARK: - Sub Views here
                     MainProductsView()
+                    ChildProductsView()
                 }
             }
             

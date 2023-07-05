@@ -55,7 +55,7 @@ struct LoginView: View {
                 Text("Your password or login is incorrect.")
             } content: { } actions: {
                 Button {
-                    print("Button clicked")
+//                    print("Button clicked")
                 } label: {
                     Text("OK")
                         .bold()
