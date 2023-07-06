@@ -27,11 +27,11 @@ struct HomeScreen: View {
                 
                 switch selectedTab {
                 case .search:
-                    Text("TabButton1")
+                    Text("Tab bar view 1")
                 case .home:
                     HomeViewSection()
                 case .basket:
-                    Text("TabButton3")
+                    Text("Tab bar view 3")
                 }
                 
                 Spacer()

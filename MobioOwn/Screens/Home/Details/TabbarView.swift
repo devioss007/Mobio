@@ -45,7 +45,6 @@ struct TabbarView: View {
                         .bold()
                     
                     Spacer()
-                    
                 }
             })
             
