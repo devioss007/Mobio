@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C42166DA2A56D41C009DE86D /* SearchViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42166D92A56D41C009DE86D /* SearchViewSection.swift */; };
+		C42166DD2A56E28F009DE86D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C42166DC2A56E28F009DE86D /* Lottie */; };
+		C42166DF2A56E3B2009DE86D /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = C42166DE2A56E3B2009DE86D /* search.json */; };
 		C4317B0F2A44027500DA8C2F /* MobioOwnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4317B0E2A44027500DA8C2F /* MobioOwnApp.swift */; };
 		C4317B112A44027500DA8C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4317B102A44027500DA8C2F /* ContentView.swift */; };
 		C4317B132A44027700DA8C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4317B122A44027700DA8C2F /* Assets.xcassets */; };
@@ -46,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		C42166D92A56D41C009DE86D /* SearchViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewSection.swift; sourceTree = "<group>"; };
+		C42166DE2A56E3B2009DE86D /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		C4317B0B2A44027500DA8C2F /* MobioOwn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobioOwn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4317B0E2A44027500DA8C2F /* MobioOwnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobioOwnApp.swift; sourceTree = "<group>"; };
 		C4317B102A44027500DA8C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42166DD2A56E28F009DE86D /* Lottie in Frameworks */,
 				C4F4CE532A52A02D00633965 /* SDWebImageSwiftUI in Frameworks */,
 				C4317B1E2A44089000DA8C2F /* SlidingTabView in Frameworks */,
 				C4317B3E2A4559AE00DA8C2F /* CustomAlert in Frameworks */,
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C42166D92A56D41C009DE86D /* SearchViewSection.swift */,
+				C42166DE2A56E3B2009DE86D /* search.json */,
 			);
 			path = "Search Section";
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				C4317B2E2A45553E00DA8C2F /* Alamofire */,
 				C4317B3D2A4559AE00DA8C2F /* CustomAlert */,
 				C4F4CE522A52A02D00633965 /* SDWebImageSwiftUI */,
+				C42166DC2A56E28F009DE86D /* Lottie */,
 			);
 			productName = MobioOwn;
 			productReference = C4317B0B2A44027500DA8C2F /* MobioOwn.app */;
@@ -347,6 +353,7 @@
 				C4317B2D2A45553E00DA8C2F /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C4317B3C2A4559AE00DA8C2F /* XCRemoteSwiftPackageReference "CustomAlert" */,
 				C4F4CE512A52A02D00633965 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				C42166DB2A56E28E009DE86D /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = C4317B0C2A44027500DA8C2F /* Products */;
 			projectDirPath = "";
@@ -362,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42166DF2A56E3B2009DE86D /* search.json in Resources */,
 				C4317B162A44027700DA8C2F /* Preview Assets.xcassets in Resources */,
 				C4317B132A44027700DA8C2F /* Assets.xcassets in Resources */,
 			);
@@ -605,6 +613,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C42166DB2A56E28E009DE86D /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		C4317B1C2A44088F00DA8C2F /* XCRemoteSwiftPackageReference "SlidingTabView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/QuynhNguyen/SlidingTabView";
@@ -640,6 +656,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C42166DC2A56E28F009DE86D /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C42166DB2A56E28E009DE86D /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		C4317B1D2A44089000DA8C2F /* SlidingTabView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C4317B1C2A44088F00DA8C2F /* XCRemoteSwiftPackageReference "SlidingTabView" */;
