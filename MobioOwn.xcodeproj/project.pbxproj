@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C42166DA2A56D41C009DE86D /* SearchViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42166D92A56D41C009DE86D /* SearchViewSection.swift */; };
 		C4317B0F2A44027500DA8C2F /* MobioOwnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4317B0E2A44027500DA8C2F /* MobioOwnApp.swift */; };
 		C4317B112A44027500DA8C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4317B102A44027500DA8C2F /* ContentView.swift */; };
 		C4317B132A44027700DA8C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4317B122A44027700DA8C2F /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C42166D92A56D41C009DE86D /* SearchViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewSection.swift; sourceTree = "<group>"; };
 		C4317B0B2A44027500DA8C2F /* MobioOwn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobioOwn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4317B0E2A44027500DA8C2F /* MobioOwnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobioOwnApp.swift; sourceTree = "<group>"; };
 		C4317B102A44027500DA8C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C42166D82A56D402009DE86D /* Search Section */ = {
+			isa = PBXGroup;
+			children = (
+				C42166D92A56D41C009DE86D /* SearchViewSection.swift */,
+			);
+			path = "Search Section";
+			sourceTree = "<group>";
+		};
 		C4317B022A44027500DA8C2F = {
 			isa = PBXGroup;
 			children = (
@@ -191,10 +201,11 @@
 		C4317B362A45574200DA8C2F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C4C775FB2A4AA0730040F75E /* Details */,
 				C4317B372A45575100DA8C2F /* HomeScreen.swift */,
 				C4487D7A2A4612D30031FE42 /* HomeScreenViewModel.swift */,
 				C4A3E9F72A4AB62E00F75357 /* Home Section */,
-				C4C775FB2A4AA0730040F75E /* Details */,
+				C42166D82A56D402009DE86D /* Search Section */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -363,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42166DA2A56D41C009DE86D /* SearchViewSection.swift in Sources */,
 				C4487D7B2A4612D30031FE42 /* HomeScreenViewModel.swift in Sources */,
 				C4317B202A440DEF00DA8C2F /* TestView.swift in Sources */,
 				C4F4CE562A53DC0400633965 /* DetailCategoryScreen.swift in Sources */,
