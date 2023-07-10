@@ -20,6 +20,8 @@ struct MainProductsCard: View {
         let decreasePercentage = (priceDifference / Double(old_price)!) * 100
         return decreasePercentage
     }
+    var width: CGFloat = 140.0
+    var height: CGFloat = 170.0
     
     var body: some View {
         VStack {
@@ -80,7 +82,7 @@ struct MainProductsCard: View {
                     Spacer()
                 }
             }
-            .frame(width: 140, height: 95)
+            .frame(width: width, height: 95)
             .background(Color.white)
             
             Spacer()
@@ -121,10 +123,9 @@ struct MainProductsCard: View {
             .background(Color.white)
             
         }
-        .frame(width: 140, height: 170)
+        .frame(width: width, height: height)
         .background(Color.white)
         .cornerRadius(8)
-        .offset(x: 10)
         .shadow(radius: 5)
     }
 }

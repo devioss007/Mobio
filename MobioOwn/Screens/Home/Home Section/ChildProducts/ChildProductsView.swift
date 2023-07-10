@@ -27,6 +27,7 @@ struct ChildProductsView: View {
                             
                             NavigationLink("Barchasini ko'rish >") {
                                 //                        Text("Наушники")
+                                CategoryDetailView(title: item.title, id: item.id)
                             }
                             .foregroundColor(.red)
                             .font(.system(size: 10))

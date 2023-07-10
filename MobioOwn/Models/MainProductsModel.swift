@@ -14,6 +14,7 @@ struct MainProductsModel: Codable {
 
 struct Data: Codable {
     let title: String
+    let id: Int
     let products: [Products]
 }
 

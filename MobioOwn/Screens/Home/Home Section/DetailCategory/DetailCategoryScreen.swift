@@ -41,8 +41,6 @@ struct DetailCategoryScreen: View {
                             .font(.system(size: 10))
                             .lineLimit(nil)
                             .padding(.horizontal)
-                        
-                        
                     }
                     
                 }

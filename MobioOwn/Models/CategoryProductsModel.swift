@@ -1,28 +1,27 @@
 //
-//  MainChildProductsModel.swift
+//  CategoryProductsModel.swift
 //  MobioOwn
 //
-//  Created by Zekhniddin Jumaev on 05/07/23.
+//  Created by Zekhniddin Jumaev on 10/07/23.
 //
 
 import Foundation
 
-struct MainChildProductsModel: Codable {
+struct CategoryProductsModel: Codable {
     let message: String
-    let data: [Data]
+    let data: Data
     
     struct Data: Codable {
-        let title: String
-        let id: Int
-        let products: [Products]
+        let data: [Data]
         
-        struct Products: Codable {
-            let productsss: [Productsss]
-            let photo: Photo?
+        struct Data: Codable {
+            let productss: Productss
+            let photo: Photo
             let rate: [Rate]
             
-            struct Productsss: Codable {
+            struct Productss: Codable {
                 let name: String
+                let old_price: String
                 let price: String
             }
             
@@ -37,5 +36,3 @@ struct MainChildProductsModel: Codable {
         }
     }
 }
-
-

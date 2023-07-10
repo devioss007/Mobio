@@ -148,4 +148,28 @@ class NetworkManager {
             }
     }
     
+    
+    func getCategoryProducts(id: Int, completion: @escaping (Result<CategoryProductsModel, Error>) -> Void) {
+        let url = "https://dev.mobio.uz/api/productbycategory/\(id)"
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+
+        AF.request(url, method: .get, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: value)
+                        let response = try JSONDecoder().decode(CategoryProductsModel.self, from: jsonData)
+                        completion(.success(response))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+
 }

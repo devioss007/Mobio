@@ -74,3 +74,17 @@ struct LottieView: UIViewRepresentable {
         
     }
 }
+
+
+//1)Search
+//api/product
+//
+//querysiga search junatiladi va shu query ga page bilan count ham junatiladi @GET
+//
+//2) get item id
+//api/product
+//
+//bundaham querysiga id junatasizlar @GET
+//
+//3) categorya ga tegishli listlarni olish
+//api/productbycategory/{categoryId} @GET

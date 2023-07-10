@@ -23,7 +23,7 @@ struct MainProductsView: View {
                         Spacer()
                         
                         NavigationLink("Barchasini ko'rish >") {
-                            Text(item.title)
+                            CategoryDetailView(title: item.title, id: item.id)
                         }
                         .foregroundColor(.red)
                         .font(.system(size: 10))
@@ -41,7 +41,9 @@ struct MainProductsView: View {
                                              price: item.products[index].productsss.first!.price,
                                              rate: viewModel.calculateRate(item.products[index].rate), photoURL: "https://dev.mobio.uz/storage/\(url.id)/\(url.file_name)")
                         }
+                        
                     }
+                    .padding(.horizontal)
                     .frame(height: 180)
                 }
             }

@@ -18,7 +18,7 @@ struct HomeViewSection: View {
     var body: some View {
         NavigationStack {
             ScrollViewReader { proxyReader in
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     VStack {
                         // MARK: - Header
                         HStack {
