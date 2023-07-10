@@ -46,38 +46,46 @@ struct ChildProductsView: View {
                                 .frame(height: 1)
                                 .background(Color.gray.opacity(0.6))
                                 .padding(.vertical, 4)
-                                
-                                HStack(spacing: 10) {
-                                    WebImage(url: URL(string: "https://dev.mobio.uz/storage/\(item.products[index].photo!.id)/\(item.products[index].photo!.file_name)"))
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 60, height: 60)
-                                        .cornerRadius(8)
+                                NavigationLink {
+                                    DetailProduct(id: item.products[index].productsss.first!.id)
+                                } label: {
+                                    HStack(spacing: 10) {
+                                        WebImage(url: URL(string: "https://dev.mobio.uz/storage/\(item.products[index].photo!.id)/\(item.products[index].photo!.file_name)"))
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 60, height: 60)
+                                            .cornerRadius(8)
 
-                                    
-                                    VStack(alignment: .leading, spacing: 3) {
-                                        Text(item.products[index].productsss.first!.name)
-                                            .font(.system(size: 12.5))
                                         
-                                        HStack(spacing: 12) {
-                                            Text(String(format: "%.0f", Double(item.products[index].productsss.first!.price)!) + " сум")
-                                                .foregroundColor(.pink)
+                                        VStack(alignment: .leading, spacing: 3) {
+                                            Text(item.products[index].productsss.first!.name)
+                                                .font(.system(size: 12.5))
+                                                .multilineTextAlignment(.leading)
+                                                .foregroundColor(Color.black)
                                             
-                                            HStack(spacing: 4) {
-                                                Image(systemName: "star.fill")
-                                                    .foregroundColor(.yellow)
-                                                Text(String(format: "%.2f", viewModel.calculateRate(item.products[index].rate)))
+                                            HStack(spacing: 12) {
+                                                Text(String(format: "%.0f", Double(item.products[index].productsss.first!.price)!) + " сум")
+                                                    .foregroundColor(.pink)
+                                                
+                                                HStack(spacing: 4) {
+                                                    Image(systemName: "star.fill")
+                                                        .foregroundColor(.yellow)
+                                                    Text(String(format: "%.2f", viewModel.calculateRate(item.products[index].rate)))
+                                                }
                                             }
-                                        }
-                                        .font(.system(size: 11))
-                                        
-                                        Text(String(item.products[index].rate.count) + " Комментарий")
                                             .font(.system(size: 11))
-                                        
+                                            
+                                            Text(String(item.products[index].rate.count) + " Комментарий")
+                                                .font(.system(size: 11))
+                                                .foregroundColor(Color.black)
+                                            
+                                        }
+                                        Spacer()
                                     }
-                                    Spacer()
+                                    .padding(.vertical, 4)
                                 }
-                                .padding(.vertical, 4)
+
+                                
                             }
                             
                         }

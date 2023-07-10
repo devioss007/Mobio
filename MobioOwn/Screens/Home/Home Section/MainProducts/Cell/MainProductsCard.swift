@@ -92,6 +92,7 @@ struct MainProductsCard: View {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("\(price) сум")
                             .font(.system(size: 9))
+                            .foregroundColor(Color.black)
                         Text("\(old_price) сум")
                             .font(.system(size: 8))
                             .foregroundColor(.secondary)
@@ -118,6 +119,8 @@ struct MainProductsCard: View {
                 Text(name)
                     .font(.system(size: 8))
                     .padding(.bottom, 10)
+                    .foregroundColor(Color.black)
+                    .multilineTextAlignment(.leading)
             }
             .padding(.horizontal, 6)
             .background(Color.white)

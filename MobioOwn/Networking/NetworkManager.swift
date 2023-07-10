@@ -171,5 +171,32 @@ class NetworkManager {
                 }
             }
     }
+    
+    func getSingleProduct(id: Int, completion: @escaping (Result<ProductModel, Error>) -> Void) {
+        let url = "https://dev.mobio.uz/api/product/"
+        
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+
+        let parameters: [String: Any] = [
+            "id": id
+        ]
+        
+        AF.request(url, method: .get, parameters: parameters, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: value)
+                        let response = try JSONDecoder().decode(ProductModel.self, from: jsonData)
+                        completion(.success(response))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
 
 }

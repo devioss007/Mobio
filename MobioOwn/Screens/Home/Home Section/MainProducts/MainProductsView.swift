@@ -36,12 +36,17 @@ struct MainProductsView: View {
                     HStack(spacing: 10) {
                         ForEach(0..<item.products.count, id: \.self) { index in
                             let url = item.products[index].photo
-                            MainProductsCard(name: item.products[index].productsss.first!.name,
-                                             old_price: item.products[index].productsss.first!.old_price,
-                                             price: item.products[index].productsss.first!.price,
-                                             rate: viewModel.calculateRate(item.products[index].rate), photoURL: "https://dev.mobio.uz/storage/\(url.id)/\(url.file_name)")
+                            let id = item.products[index].productsss.first!.id
+                            NavigationLink {
+                                DetailProduct(id: id)
+                            } label: {
+                                MainProductsCard(name: item.products[index].productsss.first!.name,
+                                                 old_price: item.products[index].productsss.first!.old_price,
+                                                 price: item.products[index].productsss.first!.price,
+                                                 rate: viewModel.calculateRate(item.products[index].rate), photoURL: "https://dev.mobio.uz/storage/\(url.id)/\(url.file_name)")
+                            }
+                            
                         }
-                        
                     }
                     .padding(.horizontal)
                     .frame(height: 180)

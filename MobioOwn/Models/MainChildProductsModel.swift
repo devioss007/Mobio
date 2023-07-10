@@ -22,6 +22,7 @@ struct MainChildProductsModel: Codable {
             let rate: [Rate]
             
             struct Productsss: Codable {
+                let id: Int
                 let name: String
                 let price: String
             }
