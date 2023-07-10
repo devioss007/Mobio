@@ -15,25 +15,28 @@ struct DetailProduct: View {
     let id: Int
     
     var body: some View {
-        VStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(viewModel.data.data.photos, id: \.id) { photo in
-                        let url = "https://dev.mobio.uz/storage/\(photo.id)/\(photo.file_name)"
-                        WebImage(url: URL(string: url))
-                            .resizable()
-                            .scaledToFill()
-                            .minimumScaleFactor(0.1)
-                            .frame(width: 100, height: 100)
-                    }
+        ScrollView {
+            VStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(viewModel.data.data.photos, id: \.id) { photo in
+                            let url = "https://dev.mobio.uz/storage/\(photo.id)/\(photo.file_name)"
+                            WebImage(url: URL(string: url))
+                                .resizable()
+                                .scaledToFill()
+                                .minimumScaleFactor(0.1)
+                                .frame(width: 100, height: 100)
+                        }
 
+                    }
                 }
+                
+                Text(viewModel.data.data.name)
+                    .padding()
+                Text(viewModel.data.data.description ?? "no description")
             }
-            
-            Text(viewModel.data.data.name)
-                .padding()
-            Text(viewModel.data.data.description ?? "no description")
         }
+        .navigationTitle(viewModel.data.data.name)
         .onAppear {
             viewModel.getItem(id: self.id)
         }
