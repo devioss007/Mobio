@@ -167,17 +167,3 @@ struct SliderView_Previews: PreviewProvider {
 }
 
 
-
-////
-////Product(category: MobioOwn.Category(data:
-//[
-//MobioOwn.Datum(id: 23, name: "Test", slug: "test", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 22, name: "Портативные аккумляторы", slug: "portativnye-akkumlyatory", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 21, name: "Аксессуары для телефонов", slug: "aksessuary-dlya-telefonov", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 20, name: "Портативные жесткие диски", slug: "portativnye-zestkie-diski", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 19, name: "Точки доступа и усилители сигнала", slug: "tocki-dostupa-i-usiliteli-signala", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 18, name: "Сетевое оборудование", slug: "setevoe-oborudovanie", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 17, name: "Портативные колонки", slug: "portativnye-kolonki", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 16, name: "Акустика", slug: "akustika", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 15, name: "Браслеты и умные часы", slug: "braslety-i-umnye-casy", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 14, name: "Кнопочные телефоны", slug: "knopocnye-telefony", uzname: nil, photo: nil)]))

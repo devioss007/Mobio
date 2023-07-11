@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4BD5CA352A5D133600333CEF /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5CA342A5D133600333CEF /* CustomTransition.swift */; };
 		4BD5CA372A5D134600333CEF /* SliderProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5CA362A5D134600333CEF /* SliderProduct.swift */; };
+		4BD5CA392A5D263A00333CEF /* Deta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5CA382A5D263A00333CEF /* Deta.swift */; };
+		4BD5CA412A5D41CC00333CEF /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 4BD5CA402A5D41CC00333CEF /* Shimmer */; };
 		C42166DA2A56D41C009DE86D /* SearchViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42166D92A56D41C009DE86D /* SearchViewSection.swift */; };
 		C42166DD2A56E28F009DE86D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C42166DC2A56E28F009DE86D /* Lottie */; };
 		C42166DF2A56E3B2009DE86D /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = C42166DE2A56E3B2009DE86D /* search.json */; };
@@ -57,6 +59,7 @@
 /* Begin PBXFileReference section */
 		4BD5CA342A5D133600333CEF /* CustomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
 		4BD5CA362A5D134600333CEF /* SliderProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderProduct.swift; sourceTree = "<group>"; };
+		4BD5CA382A5D263A00333CEF /* Deta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deta.swift; sourceTree = "<group>"; };
 		C42166D92A56D41C009DE86D /* SearchViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewSection.swift; sourceTree = "<group>"; };
 		C42166DE2A56E3B2009DE86D /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		C4317B0B2A44027500DA8C2F /* MobioOwn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobioOwn.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD5CA412A5D41CC00333CEF /* Shimmer in Frameworks */,
 				C42166DD2A56E28F009DE86D /* Lottie in Frameworks */,
 				C4F4CE532A52A02D00633965 /* SDWebImageSwiftUI in Frameworks */,
 				C4317B1E2A44089000DA8C2F /* SlidingTabView in Frameworks */,
@@ -238,6 +242,7 @@
 				C4487D7A2A4612D30031FE42 /* HomeScreenViewModel.swift */,
 				C4A3E9F72A4AB62E00F75357 /* Home Section */,
 				C42166D82A56D402009DE86D /* Search Section */,
+				4BD5CA382A5D263A00333CEF /* Deta.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				C4317B3D2A4559AE00DA8C2F /* CustomAlert */,
 				C4F4CE522A52A02D00633965 /* SDWebImageSwiftUI */,
 				C42166DC2A56E28F009DE86D /* Lottie */,
+				4BD5CA402A5D41CC00333CEF /* Shimmer */,
 			);
 			productName = MobioOwn;
 			productReference = C4317B0B2A44027500DA8C2F /* MobioOwn.app */;
@@ -402,6 +408,7 @@
 				C4317B3C2A4559AE00DA8C2F /* XCRemoteSwiftPackageReference "CustomAlert" */,
 				C4F4CE512A52A02D00633965 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				C42166DB2A56E28E009DE86D /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				4BD5CA3F2A5D41CC00333CEF /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = C4317B0C2A44027500DA8C2F /* Products */;
 			projectDirPath = "";
@@ -443,6 +450,7 @@
 				C4A4FFF32A55421600A23F87 /* MainProductsCard.swift in Sources */,
 				C4487D732A460D380031FE42 /* StarterScreenViewModel.swift in Sources */,
 				C4487D772A46109E0031FE42 /* AuthorizationScreen.swift in Sources */,
+				4BD5CA392A5D263A00333CEF /* Deta.swift in Sources */,
 				C4A3E9F92A4AB6D400F75357 /* HomeViewSectionViewModel.swift in Sources */,
 				C4492BBC2A5C231C001850EE /* DetailProductViewModel.swift in Sources */,
 				C4A4FFFA2A55718400A23F87 /* ChildProductsViewModel.swift in Sources */,
@@ -669,6 +677,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4BD5CA3F2A5D41CC00333CEF /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		C42166DB2A56E28E009DE86D /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -712,6 +728,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4BD5CA402A5D41CC00333CEF /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BD5CA3F2A5D41CC00333CEF /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
 		C42166DC2A56E28F009DE86D /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C42166DB2A56E28E009DE86D /* XCRemoteSwiftPackageReference "lottie-ios" */;

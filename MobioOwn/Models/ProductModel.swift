@@ -18,9 +18,11 @@ struct ProductModel: Codable {
         let price: String
         let photos: [Photos]
         
-        struct Photos: Codable {
-            let id: Int
-            let file_name: String
-        }
+        
     }
+}
+
+struct Photos: Codable,Hashable {
+    let id: Int
+    let file_name: String
 }

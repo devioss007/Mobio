@@ -19,7 +19,6 @@ struct MainProductsView: View {
                     HStack {
                         Text(item.title)
                             .font(.system(size: 12))
-                        
                         Spacer()
                         
                         NavigationLink("Barchasini ko'rish >") {

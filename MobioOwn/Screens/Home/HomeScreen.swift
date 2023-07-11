@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Shimmer
 enum Section {
     case search
     case home
@@ -45,9 +45,9 @@ struct HomeScreen: View {
                 profile.isUserLoggedIn = false
                 viewModel.deleteToken()
             }) {
-                Image(systemName: "square.and.arrow.up")
-                    .foregroundColor(.red)
-                    .bold()
+                Text("Log out")
+                    .font(.system(size: 12))
+                    .foregroundColor(.pink)
             })
         }
     }
