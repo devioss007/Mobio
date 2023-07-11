@@ -224,9 +224,9 @@
 		C4317B362A45574200DA8C2F /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C4C775FB2A4AA0730040F75E /* Details */,
 				C4317B372A45575100DA8C2F /* HomeScreen.swift */,
 				C4487D7A2A4612D30031FE42 /* HomeScreenViewModel.swift */,
+				C4C775FB2A4AA0730040F75E /* Details */,
 				C4A3E9F72A4AB62E00F75357 /* Home Section */,
 				C42166D82A56D402009DE86D /* Search Section */,
 				C4F3D36C2A5D15750031E939 /* Basket Section */,
