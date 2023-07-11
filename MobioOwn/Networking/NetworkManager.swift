@@ -209,4 +209,35 @@ class NetworkManager {
         })
     }
 
+    func performSearch(text: String, page: Int, count: Int, completion: @escaping(Result<SearchModel, Error>) -> Void) {
+        let url = "https://dev.mobio.uz/api/product"
+
+        let headers: HTTPHeaders = [
+            "Accept": "application/json"
+        ]
+        
+        
+        let parameters: [String: Any] = [
+            "search": text,
+            "page": page,
+            "count": count
+        ]
+        
+        AF.request(url, method: .get, parameters: parameters, headers: headers).responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: value)
+                        let response = try JSONDecoder().decode(SearchModel.self, from: jsonData)
+                        print(response)
+                        completion(.success(response))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        
+    }
 }
