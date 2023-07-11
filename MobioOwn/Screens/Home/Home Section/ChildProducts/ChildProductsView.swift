@@ -71,6 +71,7 @@ struct ChildProductsView: View {
                                                     Image(systemName: "star.fill")
                                                         .foregroundColor(.yellow)
                                                     Text(String(format: "%.2f", viewModel.calculateRate(item.products[index].rate)))
+                                                        .foregroundColor(Color.black)
                                                 }
                                             }
                                             .font(.system(size: 11))
