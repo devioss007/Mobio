@@ -40,16 +40,16 @@ struct HomeScreen: View {
                     .background(Color.white)
             }
             .edgesIgnoringSafeArea(.bottom)
-            .navigationBarItems(trailing:
-                                    Button(action: {
-//                print("navigation bar button tapped")
-                profile.isUserLoggedIn = false
-                viewModel.deleteToken()
-            }) {
-                Image(systemName: "square.and.arrow.up")
-                    .foregroundColor(.red)
-                    .bold()
-            })
+//            .navigationBarItems(trailing:
+//                                    Button(action: {
+////                print("navigation bar button tapped")
+//                profile.isUserLoggedIn = false
+//                viewModel.deleteToken()
+//            }) {
+//                Image(systemName: "square.and.arrow.up")
+//                    .foregroundColor(.red)
+//                    .bold()
+//            })
         }
     }
 }
