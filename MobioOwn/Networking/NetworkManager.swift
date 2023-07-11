@@ -198,5 +198,15 @@ class NetworkManager {
                 }
             }
     }
+    
+    func fethcProducts(completion: @escaping(Result<HomeScreenModel,Error>) ->Void ){
+        AF.request("https://dev.mobio.uz/api/category").responseDecodable(of: HomeScreenModel.self, completionHandler: { response in
+
+            guard let data = response.value else {
+                return
+            }
+            completion(.success(data))
+        })
+    }
 
 }
