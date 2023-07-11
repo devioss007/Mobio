@@ -31,10 +31,11 @@ struct HomeScreen: View {
                 case .home:
                     HomeViewSection()
                 case .basket:
-                    Text("Tab bar view 3")
+                    BasketViewSection()
                 }
                 
                 Spacer()
+                
                 TabbarView(selectedSection: $selectedTab)
                     .background(Color.white)
             }

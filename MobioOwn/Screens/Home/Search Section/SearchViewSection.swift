@@ -32,9 +32,11 @@ struct SearchViewSection: View {
             Spacer()
             
             LottieView(lottieFile: "search.json")
-                .frame(width: 240, height: 240)
+                .frame(width: 180, height: 180)
             Text("Раздел поиска ")
-                .offset(y: -28)
+                .offset(y: -26)
+                .font(.system(size: 12))
+
             
             Spacer()
             
