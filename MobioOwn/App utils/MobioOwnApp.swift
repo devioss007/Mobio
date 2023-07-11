@@ -11,7 +11,7 @@ import SwiftUI
 struct MobioOwnApp: App {
     var body: some Scene {
         WindowGroup {
-            StarterScreen()
+            HomeScreen()
                 .environmentObject(Profile())
         }
     }

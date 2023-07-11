@@ -99,6 +99,8 @@ struct HomeViewSection: View {
                         Spacer()
                         
                         // MARK: - Sub Views here
+                        
+                        SliderView()
                         MainProductsView()
                         ChildProductsView()
                     }
