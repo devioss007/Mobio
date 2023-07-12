@@ -36,6 +36,8 @@
 		C4492BBC2A5C231C001850EE /* DetailProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4492BBB2A5C231C001850EE /* DetailProductViewModel.swift */; };
 		C4492BBE2A5C2A59001850EE /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4492BBD2A5C2A59001850EE /* ProductModel.swift */; };
 		C4980C3C2A498F8500307882 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4980C3B2A498F8500307882 /* RegistrationModel.swift */; };
+		C4A352132A5E6CFC003334B9 /* DebouncedOnChange in Frameworks */ = {isa = PBXBuildFile; productRef = C4A352122A5E6CFC003334B9 /* DebouncedOnChange */; };
+		C4A352162A5E6EE7003334B9 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = C4A352152A5E6EE7003334B9 /* ActivityIndicatorView */; };
 		C4A3E9F42A4AABA800F75357 /* HomeScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A3E9F32A4AABA800F75357 /* HomeScreenModel.swift */; };
 		C4A3E9F62A4AB62A00F75357 /* HomeViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A3E9F52A4AB62A00F75357 /* HomeViewSection.swift */; };
 		C4A3E9F92A4AB6D400F75357 /* HomeViewSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A3E9F82A4AB6D400F75357 /* HomeViewSectionViewModel.swift */; };
@@ -110,7 +112,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C42166DD2A56E28F009DE86D /* Lottie in Frameworks */,
+				C4A352132A5E6CFC003334B9 /* DebouncedOnChange in Frameworks */,
 				C4F4CE532A52A02D00633965 /* SDWebImageSwiftUI in Frameworks */,
+				C4A352162A5E6EE7003334B9 /* ActivityIndicatorView in Frameworks */,
 				C4317B1E2A44089000DA8C2F /* SlidingTabView in Frameworks */,
 				C4317B3E2A4559AE00DA8C2F /* CustomAlert in Frameworks */,
 				C4317B2F2A45553E00DA8C2F /* Alamofire in Frameworks */,
@@ -384,6 +388,8 @@
 				C4317B3D2A4559AE00DA8C2F /* CustomAlert */,
 				C4F4CE522A52A02D00633965 /* SDWebImageSwiftUI */,
 				C42166DC2A56E28F009DE86D /* Lottie */,
+				C4A352122A5E6CFC003334B9 /* DebouncedOnChange */,
+				C4A352152A5E6EE7003334B9 /* ActivityIndicatorView */,
 			);
 			productName = MobioOwn;
 			productReference = C4317B0B2A44027500DA8C2F /* MobioOwn.app */;
@@ -419,6 +425,8 @@
 				C4317B3C2A4559AE00DA8C2F /* XCRemoteSwiftPackageReference "CustomAlert" */,
 				C4F4CE512A52A02D00633965 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				C42166DB2A56E28E009DE86D /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				C4A352112A5E6CFC003334B9 /* XCRemoteSwiftPackageReference "DebouncedOnChange" */,
+				C4A352142A5E6EE7003334B9 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 			);
 			productRefGroup = C4317B0C2A44027500DA8C2F /* Products */;
 			projectDirPath = "";
@@ -721,6 +729,22 @@
 				kind = branch;
 			};
 		};
+		C4A352112A5E6CFC003334B9 /* XCRemoteSwiftPackageReference "DebouncedOnChange" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Tunous/DebouncedOnChange";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		C4A352142A5E6EE7003334B9 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		C4F4CE512A52A02D00633965 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
@@ -751,6 +775,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C4317B3C2A4559AE00DA8C2F /* XCRemoteSwiftPackageReference "CustomAlert" */;
 			productName = CustomAlert;
+		};
+		C4A352122A5E6CFC003334B9 /* DebouncedOnChange */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4A352112A5E6CFC003334B9 /* XCRemoteSwiftPackageReference "DebouncedOnChange" */;
+			productName = DebouncedOnChange;
+		};
+		C4A352152A5E6EE7003334B9 /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4A352142A5E6EE7003334B9 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
 		};
 		C4F4CE522A52A02D00633965 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

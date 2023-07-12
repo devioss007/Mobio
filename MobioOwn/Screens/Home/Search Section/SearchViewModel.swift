@@ -9,8 +9,8 @@ import Foundation
 
 final class SearchViewModel: ObservableObject {
     private let service = NetworkManager()
-    private var page: Int = 0
-    private let count: Int = 10
+    private var page: Int = 1
+    private let count: Int = 100
     
     @Published var items: [SearchModel.Data.Data] = []
 

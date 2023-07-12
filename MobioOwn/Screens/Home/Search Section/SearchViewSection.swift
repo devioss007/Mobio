@@ -8,68 +8,103 @@
 import SwiftUI
 import Lottie
 import SDWebImageSwiftUI
+import DebouncedOnChange
+import ActivityIndicatorView
+
 
 struct SearchViewSection: View {
     @StateObject var viewModel = SearchViewModel()
-    
+    @State var showLoadingIndicator = false
+    @FocusState private var isFocused: Bool
     @State private var text: String = ""
     
     var body: some View {
-        VStack {
-            HStack(spacing: 6) {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(Color.red)
-                    .bold()
-                    .font(.system(size: 14))
-                    .padding(.leading, 8)
-                
-                TextField("Поиск...", text: $text)
-                    .autocorrectionDisabled()
-                    .onChange(of: text) { newValue in
-                        print(newValue)
-                        viewModel.search(with: newValue)
-                    }
-            }
-            .frame(height: 38)
-            .background(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.red, lineWidth: 1)
-            )
-            .padding()
-            
-            Spacer()
-            
-            if viewModel.items.isEmpty || text.isEmpty {
-                LottieView(lottieFile: "search.json")
-                    .frame(width: 180, height: 180)
-                Text("Раздел поиска ")
-                    .offset(y: -26)
-                    .font(.system(size: 12))
-            } else {
-//                let t = [SearchModel.Data.Data.init(id: 0, name: "Airpods", price: "10000", photos: [SearchModel.Data.Photos(id: 64, file_name: "Y0CHiJ6VlmtDY0zTz6x8BxVFthduEU-metaQXBwcy1jb3VudGVyLXN0cmlrZS1pY29uLnBuZw==-.png")])]
-                GeometryReader { geometry in
-                    ScrollView(.vertical, showsIndicators: false) {
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                            ForEach(viewModel.items, id: \.name) { item in
-                                NavigationLink {
-                                    DetailProduct(id: item.id)
+        ZStack {
+            VStack {
+                HStack(spacing: 6) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(Color.red)
+                        .bold()
+                        .font(.system(size: 14))
+                        .padding(.leading, 8)
+                    
+                    TextField("Поиск...", text: $text)
+                        .focused($isFocused)
+                        .autocorrectionDisabled()
+                        .onChange(of: text) { _ in
+                            showLoadingIndicator = true
+                        }
+                        .onChange(of: text, debounceTime: .seconds(1)) { newValue in
+                            viewModel.search(with: newValue)
+                            showLoadingIndicator = false
+                            withAnimation(.easeInOut(duration: 1.0)) {
+//                                isFocused = false
+                            }
+                        }
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                                Button {
+                                isFocused = false
                                 } label: {
-                                    MainProductsCard2(name: item.name,
-                                                      price: item.price,
-                                                      photoURL: "https://dev.mobio.uz/storage/\(item.photos?.first?.id ?? 0)/\(item.photos?.first?.file_name ?? "")",
-                                                      width: geometry.size.width / 2 - 10,
-                                                      height: 190)
-                                    .offset(y: 10)
+                                    Text("Done")
+                                        .bold()
+                                }
+                            }
+                        }
+                }
+                .frame(height: 38)
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.red, lineWidth: 1)
+                )
+                .padding()
+                
+                Spacer()
+                
+                if viewModel.items.isEmpty || text.isEmpty {
+                    LottieView(lottieFile: "search.json")
+                        .frame(width: 180, height: 180)
+                    Text("Раздел поиска ")
+                        .offset(y: -26)
+                        .font(.system(size: 12))
+                        .onAppear {
+                            showLoadingIndicator = false
+                            isFocused = true
+                        }
+                } else {
+    //                let t = [SearchModel.Data.Data.init(id: 0, name: "Airpods", price: "10000", photos: [SearchModel.Data.Photos(id: 64, file_name: "Y0CHiJ6VlmtDY0zTz6x8BxVFthduEU-metaQXBwcy1jb3VudGVyLXN0cmlrZS1pY29uLnBuZw==-.png")])]
+                    GeometryReader { geometry in
+                        ScrollView(.vertical, showsIndicators: false) {
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+                                ForEach(viewModel.items, id: \.name) { item in
+                                    NavigationLink {
+                                        DetailProduct(id: item.id)
+                                    } label: {
+                                        MainProductsCard2(name: item.name,
+                                                          price: item.price,
+                                                          photoURL: "https://dev.mobio.uz/storage/\(item.photos?.first?.id ?? 0)/\(item.photos?.first?.file_name ?? "")",
+                                                          width: geometry.size.width / 2 - 10,
+                                                          height: 190)
+                                        .offset(y: 10)
+                                    }
                                 }
                             }
                         }
                     }
+                    .padding(.horizontal, 10)
                 }
-                .padding(.horizontal, 10)
+                
+                Spacer()
             }
             
-            Spacer()
+            ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .arcs())
+                .frame(width: 120.0, height: 120.0)
+                .foregroundColor(.red)
+
+            
         }
+        
         
     }
 }
