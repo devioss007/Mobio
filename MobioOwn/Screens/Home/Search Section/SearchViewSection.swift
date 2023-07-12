@@ -86,10 +86,11 @@ struct SearchViewSection: View {
                                                           photoURL: "https://dev.mobio.uz/storage/\(item.photos?.first?.id ?? 0)/\(item.photos?.first?.file_name ?? "")",
                                                           width: geometry.size.width / 2 - 10,
                                                           height: 190)
-                                        .offset(y: 10)
+//                                        .offset(y: 10)
                                     }
                                 }
                             }
+                            .padding(.vertical, 10)
                         }
                     }
                     .padding(.horizontal, 10)
@@ -197,7 +198,9 @@ struct MainProductsCard2: View {
         .frame(width: width, height: height)
         .background(Color.white)
         .cornerRadius(8)
-        .shadow(radius: 5)
+//        .shadow(radius: 5)
+        .shadow(color: Color.red.opacity(0.8), radius: 2, x: 0, y: 0)
+
     }
 }
 

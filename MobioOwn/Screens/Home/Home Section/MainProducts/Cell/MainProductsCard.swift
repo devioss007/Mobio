@@ -129,7 +129,9 @@ struct MainProductsCard: View {
         .frame(width: width, height: height)
         .background(Color.white)
         .cornerRadius(8)
-        .shadow(radius: 5)
+//        .shadow(radius: 5)
+        .shadow(color: Color.red.opacity(0.8), radius: 2, x: 0, y: 0)
+
     }
 }
 

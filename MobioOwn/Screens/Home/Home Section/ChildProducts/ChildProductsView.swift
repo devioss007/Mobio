@@ -95,8 +95,10 @@ struct ChildProductsView: View {
                 .padding()
                 .background(Color.white)
                 .cornerRadius(8)
-                .shadow(radius: 4)
+//                .shadow(radius: 4)
                 .padding(.horizontal)
+                .shadow(color: Color.red.opacity(0.8), radius: 2, x: 0, y: 0)
+
             }
         }
         .onAppear {
