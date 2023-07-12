@@ -37,9 +37,11 @@ struct SliderView: View {
                         .bold()
                                                 
                     Spacer()
-                    Text("Увидить Все >")
-                        .font(.system(size: 10))
-                        .foregroundColor(.pink)
+                    NavigationLink("Увидеть все >") {
+                        CategoryDetailView(title:"Category" ,id: 23)
+                    }
+                    .foregroundColor(.red)
+                    .font(.system(size: 10))
                     
                 }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 
@@ -47,12 +49,17 @@ struct SliderView: View {
                     if let newData = db{
                         ForEach(newData.indices){ i in
                             if index == i {
-                                SliderCardView(sliderModel:newData[i])
-                                    .transition(.cubeRotation)
+                                NavigationLink {
+                                    DetailProduct(id:8)
+                                }label:{
+                                    SliderCardView(sliderModel:newData[i])
+                                        
+                                }.transition(.cubeRotation)
+                                
                             }
                         }
                         
-                        PageControl(numberOfPages: newData.count, currentPage: $currentPage)
+                        PageControl(numberOfPages: 6, currentPage: $currentPage)
                     }
                 }
             }
