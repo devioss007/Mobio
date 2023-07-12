@@ -1,4 +1,4 @@
-
+//
 //  SliderProduct.swift
 //  MobioOwn
 //
@@ -31,35 +31,35 @@ struct SliderView: View {
     var body: some View {
         ZStack {
             VStack {
-                
-                // MARK: - Header
-                VStack {
-                    HStack {
-                        Text("Departament")
-                            .font(.system(size: 12))
-                        
-                        Spacer()
-                        
-                        NavigationLink("Barchasini ko'rish >") {
-                            //                        Text("Наушники")
-                        }
-                        .foregroundColor(.red)
-                        .font(.system(size: 10))
+                HStack{
+                    Text("Департамент")
+                        .font(.system(size: 12))
+                        .bold()
+                                                
+                    Spacer()
+                    NavigationLink("Увидеть все >") {
+                        CategoryDetailView(title:"Category" ,id: 23)
                     }
-                    .bold()
-                }
-                .padding(.horizontal)
+                    .foregroundColor(.red)
+                    .font(.system(size: 10))
+                    
+                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 
                 VStack{
                     if let newData = db{
                         ForEach(newData.indices){ i in
                             if index == i {
-                                SliderCardView(sliderModel:newData[i])
-                                    .transition(.cubeRotation)
+                                NavigationLink {
+                                    DetailProduct(id:8)
+                                }label:{
+                                    SliderCardView(sliderModel:newData[i])
+                                        
+                                }.transition(.cubeRotation)
+                                
                             }
                         }
                         
-                        PageControl(numberOfPages: newData.count, currentPage: $currentPage)
+                        PageControl(numberOfPages: 6, currentPage: $currentPage)
                     }
                 }
             }
@@ -173,21 +173,6 @@ struct SliderView_Previews: PreviewProvider {
     }
 }
 
-
-
-////
-////Product(category: MobioOwn.Category(data:
-//[
-//MobioOwn.Datum(id: 23, name: "Test", slug: "test", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 22, name: "Портативные аккумляторы", slug: "portativnye-akkumlyatory", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 21, name: "Аксессуары для телефонов", slug: "aksessuary-dlya-telefonov", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 20, name: "Портативные жесткие диски", slug: "portativnye-zestkie-diski", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 19, name: "Точки доступа и усилители сигнала", slug: "tocki-dostupa-i-usiliteli-signala", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 18, name: "Сетевое оборудование", slug: "setevoe-oborudovanie", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 17, name: "Портативные колонки", slug: "portativnye-kolonki", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 16, name: "Акустика", slug: "akustika", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 15, name: "Браслеты и умные часы", slug: "braslety-i-umnye-casy", uzname: nil, photo: nil),
-// MobioOwn.Datum(id: 14, name: "Кнопочные телефоны", slug: "knopocnye-telefony", uzname: nil, photo: nil)]))
 
 
 //
