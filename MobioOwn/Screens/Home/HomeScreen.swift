@@ -33,6 +33,8 @@ struct HomeScreen: View {
     @State var selectedMenu: MenuSection = .glavnoeOkno
 //    @State var backroundColor: Bool = false
     
+    @State private var offsetX: CGFloat = 0.0
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -74,6 +76,27 @@ struct HomeScreen: View {
                 GeometryReader { screen in
                     HStack(spacing: 0) {
                         VStack {
+                            
+                            HStack(alignment: .center, spacing: 6) {
+                                Image(systemName: "person.crop.circle.fill")
+                                    .foregroundColor(Color.gray.opacity(0.8))
+                                    .font(.system(size: 42))
+
+                                VStack(alignment: .leading, spacing: 6) {
+                                    Text("Информация недоступна")
+                                        .foregroundColor(Color.primary)
+                                        .bold()
+                                        .font(.system(size: 12))
+
+                                    Text("Информация недоступна")
+                                        .foregroundColor(Color.secondary)
+                                        .font(.system(size: 12))
+
+                                }
+                                Spacer()
+                            }
+                            .padding(.horizontal, 10)
+                            
                             ScrollView {
                                 VStack(spacing: 10) {
                                     Button {
@@ -165,6 +188,27 @@ struct HomeScreen: View {
                     }.frame(width: screen.size.width, height: screen.size.height)
                         .offset(x: isMenuOpen ? 0 : -screen.size.width)
                         .transition(.move(edge: .leading))
+                            .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
+                                .onEnded { value in
+                                    print(value)
+                                    print(value.translation)
+                                    switch(value.translation.width, value.translation.height) {
+                                        case (...0, -30...30):
+                                        print("left swipe")
+                                        withAnimation(.easeInOut(duration: 0.5)) {
+                                            isMenuOpen = false
+                                        }
+//                                        case (0..., -30...30):
+//                                        print("right swipe")
+//                                        withAnimation(.easeInOut(duration: 0.5)) {
+//                                            isMenuOpen = true
+//                                        }
+                    //                    case (-100...100, ...0):  print("up swipe")
+                    //                    case (-100...100, 0...):  print("down swipe")
+                                        default:  print("no clue")
+                                    }
+                                }
+                            )
                 }
                 
             }
@@ -198,6 +242,45 @@ struct HomeScreen: View {
             //                    .bold()
             //            })
         }
+//        .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
+//            .onEnded { value in
+//                print(value)
+//                print(value.translation)
+//                switch(value.translation.width, value.translation.height) {
+//                    case (...0, -30...30):
+//                    print("left swipe")
+//                    withAnimation(.easeInOut(duration: 0.5)) {
+//                        isMenuOpen = false
+//                    }
+//                    case (0..., -30...30):
+//                    print("right swipe")
+//                    withAnimation(.easeInOut(duration: 0.5)) {
+//                        isMenuOpen = true
+//                    }
+////                    case (-100...100, ...0):  print("up swipe")
+////                    case (-100...100, 0...):  print("down swipe")
+//                    default:  print("no clue")
+//                }
+//            }
+//        )
+//        .gesture(
+//            DragGesture()
+//                .onChanged { gesture in
+//                    offset = gesture.translation
+//                }
+//                .onEnded { _ in
+//                    if abs(offset.width) > 100 {
+//                        // remove the card
+//                    } else {
+//                        offset = .zero
+//                    }
+//                }
+//        )
+//        .gesture(DragGesture().onChanged { value in
+////            scale = value.magnitude
+//            print(value.translation.width, "salom")
+//        })
+
     }
 }
 
